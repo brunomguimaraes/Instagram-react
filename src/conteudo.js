@@ -18,65 +18,20 @@ function Timeline() {
 }
 
 function Stories() {
+    const arraystories = [
+        {img:'img/ig-11.jpg', name:'ig-11'},
+        {img:'img/bb-8.jpg', name:'bb-8'},
+        {img:'img/ahsoka-tano (2).jpg', name:'ahsoka_tano'},
+        {img:'img/r2-d2.jpg', name:'r2-d2'},
+        {img:'img/The-Mandalorian-Kuiil-Vest-510x600.jpg', name:'Kuiil'},
+        {img:'img/c-d.jpg', name:'cara.dune'},
+        {img:'img/grogu1.jpg', name:'grogu'},
+        {img:'img/ue.jpg', name:'semfuturo'},   
+    ]
+
     return (
         <ul class="stories">
-
-            <li class="storie">
-                <div class="imagem-storie">
-                    <img src="img/ig-11.jpg"/>
-                </div>
-                <p>ig-11</p>
-            </li>
-
-            <li class="storie">
-                <div class="imagem-storie">
-                    <img src="img/bb-8.jpg"/>
-                </div>
-                <p>bb-8</p>
-            </li>
-
-            <li class="storie">
-                <div class="imagem-storie">
-                    <img src="img/ahsoka-tano (2).jpg"/>
-                </div>
-                <p>ahsoka_tano</p>
-            </li>
-
-            <li class="storie">
-                <div class="imagem-storie">
-                    <img src="img/r2-d2.jpg"/>
-                </div>
-                <p>r2-d2</p>
-            </li>
-
-            <li class="storie">
-                <div class="imagem-storie">
-                    <img src="img/The-Mandalorian-Kuiil-Vest-510x600.jpg"/>
-                </div>
-                <p>Kuiil</p>
-            </li>
-
-            <li class="storie">
-                <div class="imagem-storie">
-                    <img src="img/c-d.jpg"/>
-                </div>
-                <p>cara.dune</p>
-            </li>
-
-            <li class="storie">
-                <div class="imagem-storie">
-                    <img src="img/grogu1.jpg"/>
-                </div>
-                <p>grogu</p>
-            </li>
-
-            <li class="storie">
-                <div class="imagem-storie">
-                    <img src="img/ue.jpg"/>
-                </div>
-                <p>semfuturo</p>
-            </li>
-
+            {arraystories.map((storie) => <Storie img={storie.img} name={storie.name}/>)}
             <div class="botao-scroll">
                 <ion-icon name="chevron-forward-sharp"></ion-icon>
             </div>
@@ -84,155 +39,63 @@ function Stories() {
     );
 }
 
-function Posts() {
+function Storie(props) {
     return (
-        <div>
-            <div class="post">
-                <div class="post-topo">
-                    <div class="post-profile">
-                        <img src="img/princesa.jpg" class="profile-photo"/>
-                        <span>leia</span>
-                    </div>
-                    <ion-icon name="ellipsis-horizontal"></ion-icon>
+        <li class="storie">
+            <div class="imagem-storie">
+                <img src={props.img}/>
+            </div>
+            <p>{props.name}</p>
+        </li>
+    );
+}
+
+function Posts() {
+    const arrayPosts = [
+        {profileImg:'img/princesa.jpg', profileUser:'leia', photo:'img/leiaesolo.jpg', 
+        likeImg:'img/luke.jpg', likeUser:'luke', likes:'outras trocentas pessoas'},
+        {profileImg:'img/yoda3.jpg', profileUser:'yoda', photo:'img/mestreee.jpg', 
+        likeImg:'img/grogu1.jpg', likeUser:'grogu', likes:'outras trocentas pessoas'},
+    ]
+    return (
+        <div class="post">
+            {arrayPosts.map((post) => <Post profileImg={post.profileImg} profileUser={post.profileUser}
+            photo={post.photo} likeImg={post.likeImg} likeUser={post.likeUser} likes={post.likes} />)}
+        </div>
+    );
+}
+
+function Post(props) {
+    return (
+        <div class="post">
+            <div class="post-topo">
+                <div class="post-profile">
+                    <img src={props.profileImg} class="profile-photo"/>
+                    <span>{props.profileUser}</span>
                 </div>
-
-                <div class="post-foto">
-                    <img src="img/leiaesolo.jpg"/>
-                </div>
-
-                <div class="post-footer">
-                    <div class="post-actions">
-                        <div class="reactions">
-                            <ion-icon name="heart-outline" ></ion-icon>
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                            <ion-icon name="paper-plane-outline"></ion-icon>
-                        </div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
-                    </div>
-
-                    <div class="post-curtidas">
-                         <img src="img/luke.jpg"/>
-                        <span>Curtido por <strong>luke</strong> e <strong>outras trocentas pessoas</strong></span>
-                    </div>
-
-                    <div class="post-comments">
-                        <div class="comment">
-                            <span><strong>luke</strong> ❤️ </span>
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-
-                        <div class="comment">
-                            <span><strong>solo</strong> ❤️❤️❤️ </span>
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    </div>
-
-                    <div class="comment-field">
-                        <input type="text" placeholder="Adicione um comentário..."/>
-                        <button class="publish-btn">Publicar</button>
-                    </div>
-
-                </div>
-            </div> 
-
-            <div class="post">
-                <div class="post-topo">
-                    <div class="post-profile">
-                        <img src="img/yoda3.jpg" class="profile-photo"/>
-                        <span>yoda</span>
-                    </div>
-                    <ion-icon name="ellipsis-horizontal"></ion-icon>
-                </div>
-
-                <div class="post-foto">
-                    <img src="img/mestreee.jpg"/>
-                </div>
-
-                <div class="post-footer">
-                    <div class="post-actions">
-                        <div class="reactions">
-                            <ion-icon name="heart-outline" ></ion-icon>
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                            <ion-icon name="paper-plane-outline"></ion-icon>
-                        </div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
-                    </div>
-
-                    <div class="post-curtidas">
-                        <img src="img/grogu1.jpg"/>
-                        <span>Curtido por <strong>grogu</strong> e <strong>outras trocentas pessoas</strong></span>
-                    </div>
-
-                    <div class="post-comments">
-                        <div class="comment">
-                            <span><strong>grogu </strong>●ω●</span>
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-
-                        <div class="comment">
-                            <span><strong>luke </strong>🙇</span>
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    </div>
-
-                    <div class="comment-field">
-                        <input type="text" placeholder="Adicione um comentário..."/>
-                        <button class="publish-btn">Publicar</button>
-                    </div>
-
-                </div>
+                <ion-icon name="ellipsis-horizontal"></ion-icon>
             </div>
 
-            <div class="post">
-                <div class="post-topo">
-                    <div class="post-profile">
-                        <img src="img/ue.jpg" class="profile-photo"/>
-                        <span>semfuturo</span>
+            <div class="post-foto">
+                <img src={props.photo} />
+            </div>
+
+            <div class="post-footer">
+                <div class="post-actions">
+                    <div class="reactions">
+                        <ion-icon name="heart-outline" ></ion-icon>
+                        <ion-icon name="chatbubble-outline"></ion-icon>
+                        <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
-                    <ion-icon name="ellipsis-horizontal"></ion-icon>
+                    <ion-icon name="bookmark-outline"></ion-icon>
                 </div>
 
-                <div class="post-foto">
-                    <video autoplay="" muted="">
-                        <source src="img/video.mp4" type="video/mp4"/>
-                    </video>
-                </div>
-
-                <div class="post-footer">
-                    <div class="post-actions">
-                        <div class="reactions">
-                            <ion-icon name="heart-outline" ></ion-icon>
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                            <ion-icon name="paper-plane-outline"></ion-icon>
-                        </div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
-                    </div>
-
-                    <div class="post-curtidas">
-                        <img src="img/desocupado.jpg"/>
-                        <span>Curtido por <strong>desocupado</strong> e <strong>outras trocentas pessoas</strong></span>
-                    </div>
-
-                    <div class="post-comments">
-                        <div class="comment">
-                            <span><strong>nadapafazer</strong>🐻</span>
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-
-                        <div class="comment">
-                            <span><strong>ue</strong>🐻🦆</span>
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    </div>
-
-                    <div class="comment-field">
-                        <input type="text" placeholder="Adicione um comentário..."/>
-                        <button class="publish-btn">Publicar</button>
-                    </div>
-
+                <div class="post-curtidas">
+                    <img src={props.likeImg}/>
+                    <span>Curtido por <strong>{props.likeUser}</strong> e <strong>{props.likes}</strong></span>
                 </div>
             </div>
-        </div>   
+        </div>
     );
 }
 
@@ -253,88 +116,83 @@ function MobileBottom() {
 function Sidebar() {
     return (
         <div class="sidebar">
-            <div class="usuario">
-                <img src="img/mando.jpg"/>
-                <div class="texto">
-                    <h4>mando</h4>
-                    <h5>Mando</h5>
-                </div>
+           <SideBarUser />
+           <Suggestions />
+           <Information />
+        </div>
+    );
+}
+
+function SideBarUser() {
+    const objectUser = {
+        userPhoto:'img/mando.jpg',
+        userName:'Mando',
+        userAt:'mando',
+    }
+    return (
+        <User userPhoto = {objectUser.userPhoto} 
+        userAt={objectUser.userAt} 
+        userName={objectUser.userName} />
+    );
+}
+
+function User(props) {
+    return (
+        <div class="usuario">
+            <img src={props.userPhoto}/>
+            <div class="texto">
+                <h4>{props.userAt}</h4>
+                <h5>{props.userName}</h5>
+            </div>
+        </div>
+    );
+}
+
+function Suggestions() {
+    const arraySuggestions =[
+        {sugestionImg: 'img/fett.jpg', sugestionUser:'boba.fett', reason: 'Segue você'},
+        {sugestionImg: 'img/luke.jpg', sugestionUser:'luke', reason: 'Segue você'},
+        {sugestionImg: 'img/cobb2.jpg', sugestionUser:'cobb.vanth', reason: 'Segue você'},
+        {sugestionImg: 'img/bokatan.jpg', sugestionUser:'bo-katan', reason: 'Segue você'},
+        {sugestionImg: 'img/greef-karga.jpg', sugestionUser:'greef.karga', reason: 'Novo no Instagram'}
+    ]
+    return (
+        <div class="sugestoes">
+            <div class="titulo">
+                <h1>Sugestões para você</h1>
+                <div><h3>Ver tudo</h3></div>
             </div>
 
-            <div class="sugestoes">
-                <div class="titulo">
-                    <h1>Sugestões para você</h1>
-                    <div><h3>Ver tudo</h3></div>
+            {arraySuggestions.map ((suggestion) => <Suggestion sugestionImg={suggestion.sugestionImg}
+            sugestionUser={suggestion.sugestionUser}
+            reason={suggestion.reason} /> )}
+        </div>     
+    );
+}
+
+function Suggestion(props) {
+    return (
+        <div class="sugestao">
+            <div class="usuario">
+                <img src={props.sugestionImg}/>
+                <div class="texto">
+                    <div class="nome">{props.sugestionUser}</div>
+                    <div class="reacao">{props.reason}</div>
                 </div>
+            </div>
+            <div class="seguir">Seguir</div>
+        </div>
+    );
+}
 
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="img/fett.jpg"/>
-                        <div class="texto">
-                            <div class="nome">boba.fett</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="img/luke.jpg"/>
-                        <div class="texto">
-                            <div class="nome">luke</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="img/cobb2.jpg"/>
-                        <div class="texto">
-                            <div class="nome">cobb.vanth</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="img/bokatan.jpg"/>
-                        <div class="texto">
-                            <div class="nome">bo-katan</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="img/greef-karga.jpg"/>
-                        <div class="texto">
-                            <div class="nome">greef.karga</div>
-                            <div class="razao">Novo no Instagram</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="links">
-                    Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes • Hashtags • Idioma
-                </div>
-
-                <div class="copyright">
-                    © 2021 INSTAGRAM DO FACEBOOK
-                </div>
-
+function Information() {
+    return (
+        <div>
+            <div class="links">
+                Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes • Hashtags • Idioma
+            </div>
+            <div class="copyright">
+                © 2021 INSTAGRAM DO FACEBOOK
             </div>
         </div>
     );
